@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Multi Select Spinner</string>
+
+    <string name="select_all"><u>Select All</u></string>
+    <string name="deselect_all"><u>Deselect All</u></string>
+    <string name="ok"><u>OK</u></string>
+    <string name="cancel"><u>Cancel</u></string>
+
 </resources>

@@ -5,8 +5,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,11 +58,62 @@ public class MultiSelectionSpinner extends Spinner implements
 
     @Override
     public boolean performClick() {
+
+//        Dialog d = new SpinnerDialog(getContext());
+//        d.setTitle(defaultText);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.dialog, null);
+//        d.setContentView(view);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle(defaultText);
         builder.setMultiChoiceItems(_items, mSelection, this);
+
+        builder.setView(view);
+
+        TextView selectAll = (TextView) view.findViewById(R.id.textViewSelectAll);
+        TextView deselectAll = (TextView) view.findViewById(R.id.textViewDeselect);
+        TextView ok = (TextView) view.findViewById(R.id.textViewOk);
+        TextView cancel = (TextView) view.findViewById(R.id.textViewCancel);
+
         _itemsAtStart = getSelectedItemsAsString();
-        builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+
+        ok.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mSelection != null)
+                    System.arraycopy(mSelection, 0, mSelectionAtStart, 0, mSelection.length);
+            }
+        });
+
+        cancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                simple_adapter.clear();
+                if (_itemsAtStart.length() <= 1) {
+                    simple_adapter.add(defaultText);
+                }
+                simple_adapter.add(_itemsAtStart);
+                if (mSelection != null)
+                    System.arraycopy(mSelectionAtStart, 0, mSelection, 0, mSelectionAtStart.length);
+            }
+        });
+
+        selectAll.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(MultiSelectionSpinner.class.getSimpleName(), "onClick : selectAll");
+            }
+        });
+
+        deselectAll.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(MultiSelectionSpinner.class.getSimpleName(), "onClick : deselectAll");
+            }
+        });
+
+        /*builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (mSelection != null)
@@ -73,7 +131,7 @@ public class MultiSelectionSpinner extends Spinner implements
                 if (mSelection != null)
                     System.arraycopy(mSelectionAtStart, 0, mSelection, 0, mSelectionAtStart.length);
             }
-        });
+        });*/
         builder.show();
         return true;
     }
@@ -259,7 +317,7 @@ public class MultiSelectionSpinner extends Spinner implements
     }
 
 
-    /*public class SpinnerAdapter extends BaseAdapter implements Filterable {
+    public class SpinnerAdapter extends BaseAdapter implements Filterable {
 
         List<String> tempValues;
         List<String> values;
@@ -294,5 +352,5 @@ public class MultiSelectionSpinner extends Spinner implements
         public Filter getFilter() {
             return null;
         }
-    }*/
+    }
 }

@@ -1,1 +1,1 @@
-include ':app', ':lib', ':lib', 'MultiSelectionSpinner:build.gradle'
+include ':app'
