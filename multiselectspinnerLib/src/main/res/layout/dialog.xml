@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:orientation="horizontal"
+              android:background="@color/material_grey_300"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp">
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="All"
+        android:layout_gravity="center|right"
+        />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:id="@+id/buttonOk"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:theme="@style/AlertDialog.AppCompat"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/buttonCancel"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"/>
+
+</LinearLayout>

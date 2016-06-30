@@ -10,42 +10,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.multispinner.MainActivity">
 
-    <com.example.multispinner.MultiSelectionSpinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewMyView"
-        android:spinnerMode="dropdown"
-        android:padding="10dp"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Selected Ids"
         android:id="@+id/textViewIds"
-        android:layout_below="@+id/viewMyView"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/view"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp"
-        android:textColor="@color/colorAccent"/>
+        android:layout_marginTop="27dp"
+        android:layout_alignRight="@+id/view"
+        android:layout_alignEnd="@+id/view"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Selected Names"
         android:id="@+id/textViewNames"
-        android:layout_centerVertical="true"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/textViewIds"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="@color/colorAccent"/>
+        android:layout_marginTop="30dp"
+        android:layout_alignRight="@+id/textViewIds"
+        android:layout_alignEnd="@+id/textViewIds"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Press Me"
         android:id="@+id/buttonPress"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <com.tushar.multiselectspinner.MultiSelectSpinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
 
 
 </RelativeLayout>

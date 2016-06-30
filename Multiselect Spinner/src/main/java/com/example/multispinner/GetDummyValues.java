@@ -13,7 +13,7 @@ public class GetDummyValues {
     public ArrayList<Values> addData() {
         values = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            values.add(new Values(String.valueOf(i), "value is " + i));
+            values.add(new Values(String.valueOf(i), "value " + i));
         }
         return values;
     }

@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MultiSelectionSpinner.iml" filepath="$PROJECT_DIR$/MultiSelectionSpinner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Multiselect Spinner/app.iml" filepath="$PROJECT_DIR$/Multiselect Spinner/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multiselectspinnerLib/multiselectspinnerLib.iml" filepath="$PROJECT_DIR$/multiselectspinnerLib/multiselectspinnerLib.iml" />
     </modules>
   </component>
 </project>
